@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+//using SocketIO;
 
 public class GameController : MonoBehaviour {
+    //static SocketIOComponent socket;
+
     public Text questionText;
     public Text scoreText;
     public BasicObjectPool answerButtonPool;
@@ -20,20 +23,26 @@ public class GameController : MonoBehaviour {
     private bool isRoundActive;
     private int questionIndex;
     private float timeRemaining;
+    bool dataSent = false;
 
     private List<GameObject> answerButtonObjects = new List<GameObject>();
     
 	// Use this for initialization
 	void Start () {
+       // socket = GetComponent<SocketIOComponent>();
+        //socket.On("open", SendQuestionData);
         dataController = FindObjectOfType<DataController>();
-        roundData = dataController.getCurrentRoundData();
+        //roundData = dataController.GetCurrentRoundData();
         questionPool = roundData.questions;
         timeRemaining = roundData.timeLimitInSeconds;
         ShowQuestions();
         playerScore = 0;
         UpdateTime();
         isRoundActive = true;
-	}
+     
+      //  socket.On("dataRecieved", ShowQuestions);
+       
+    }
 
     private void ShowQuestions()
     {
@@ -99,6 +108,20 @@ public class GameController : MonoBehaviour {
     {
         timeText.text = "Time: " + Mathf.Round(timeRemaining);
     }
+
+    /*private void SendQuestionData()
+    {
+        for (int i = 0; i < dataController.allRoundData[0].questions.Length; i++) {
+            socket.Emit("sendData", new JSONObject(DataFormatting(dataController.allRoundData[0], i)));
+            Debug.Log(DataFormatting(dataController.allRoundData[0], i));
+        }
+        dataSent = true;
+    }
+
+    private string DataFormatting(RoundData data, int index)
+    {
+        return string.Format(@"{{""Name"":""{0}"", ""TimeLimit"":""{1}"", ""Points"":""{2}"", ""Question"":""{3}"", ""A1"":""{4}"", ""A2"":""{5}"", ""A3"":""{6}"", ""A4"":""{7}"", ""A1IsCorrect"":""{8}"", ""A2IsCorrect"":""{9}"",""A3IsCorrect"":""{10}"",""A4IsCorrect"":""{11}""}}", data.name, data.timeLimitInSeconds,data.timeLimitInSeconds, data.questions[index].questionText, data.questions[index].answers[0].answerText, data.questions[index].answers[1].answerText, data.questions[index].answers[2].answerText, data.questions[index].answers[3].answerText, data.questions[index].answers[0].isCorrect, data.questions[index].answers[1].isCorrect, data.questions[index].answers[2].isCorrect, data.questions[index].answers[3].isCorrect);
+    }*/
 	
 	// Update is called once per frame
 	void Update () {
@@ -109,6 +132,6 @@ public class GameController : MonoBehaviour {
             if (timeRemaining <= 0)
                 EndRound();
         }
-           
-	}
+
+    }
 }
