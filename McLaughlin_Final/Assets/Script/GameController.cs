@@ -29,19 +29,14 @@ public class GameController : MonoBehaviour {
     
 	// Use this for initialization
 	void Start () {
-       // socket = GetComponent<SocketIOComponent>();
-        //socket.On("open", SendQuestionData);
         dataController = FindObjectOfType<DataController>();
-        //roundData = dataController.GetCurrentRoundData();
+        roundData = dataController.GetRoundDataFromServer();
         questionPool = roundData.questions;
         timeRemaining = roundData.timeLimitInSeconds;
         ShowQuestions();
         playerScore = 0;
         UpdateTime();
-        isRoundActive = true;
-     
-      //  socket.On("dataRecieved", ShowQuestions);
-       
+        isRoundActive = true;       
     }
 
     private void ShowQuestions()
@@ -108,20 +103,6 @@ public class GameController : MonoBehaviour {
     {
         timeText.text = "Time: " + Mathf.Round(timeRemaining);
     }
-
-    /*private void SendQuestionData()
-    {
-        for (int i = 0; i < dataController.allRoundData[0].questions.Length; i++) {
-            socket.Emit("sendData", new JSONObject(DataFormatting(dataController.allRoundData[0], i)));
-            Debug.Log(DataFormatting(dataController.allRoundData[0], i));
-        }
-        dataSent = true;
-    }
-
-    private string DataFormatting(RoundData data, int index)
-    {
-        return string.Format(@"{{""Name"":""{0}"", ""TimeLimit"":""{1}"", ""Points"":""{2}"", ""Question"":""{3}"", ""A1"":""{4}"", ""A2"":""{5}"", ""A3"":""{6}"", ""A4"":""{7}"", ""A1IsCorrect"":""{8}"", ""A2IsCorrect"":""{9}"",""A3IsCorrect"":""{10}"",""A4IsCorrect"":""{11}""}}", data.name, data.timeLimitInSeconds,data.timeLimitInSeconds, data.questions[index].questionText, data.questions[index].answers[0].answerText, data.questions[index].answers[1].answerText, data.questions[index].answers[2].answerText, data.questions[index].answers[3].answerText, data.questions[index].answers[0].isCorrect, data.questions[index].answers[1].isCorrect, data.questions[index].answers[2].isCorrect, data.questions[index].answers[3].isCorrect);
-    }*/
 	
 	// Update is called once per frame
 	void Update () {

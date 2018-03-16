@@ -11,16 +11,34 @@ MongoClient.connect(url ,function(err, client){
 });
 
 io.on("connection", function(socket){
-	console.log("connected");
+    
 	socket.on("sendData", function(data){
-		console.log(data);
-		console.log("ready to send data");
-		dbObj.collection("questionData").save(data, function(err, response){
-			if(err) throw err;
-			console.log("Data Saved");
-			
-			socket.emit("dataRecieved");
-		});
+
+        var isEmpty = dbObj.collection("questionData").findOne().then(function(isEmpty){
+            console.log(isEmpty);
+        if(isEmpty === null)
+        {
+            dbObj.collection("questionData").save(data, function(err, response){
+			 if(err) throw err;
+			 socket.emit("dataRecieved");
+		  });
+        }
+        else
+        {
+            dbObj.collection("questionData").replaceOne({name : "Round Zero"}, data).then(function(data){
+                socket.emit("dataRecieved");
+            });
+                
+                
+            
+        }
 	});
+    
+    socket.on("getData", function(data){
+       dbObj.collection("questionData").find().toArray(function(err, results){
+           socket.emit("gotData", results[0]);
+       });
+    });
 	
+});
 });

@@ -1,0 +1,46 @@
+Initialize engine version: 5.6.0f3 (497a0f351392)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1060 with Max-Q Design (ID=0x1c20)
+    Vendor:   NVIDIA
+    VRAM:     3072 MB
+    Driver:   23.21.13.8816
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\McLaughlin_Final\Build\test_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\McLaughlin_Final\Build\test_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\McLaughlin_Final\Build\test_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\McLaughlin_Final\Build\test_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\McLaughlin_Final\Build\test_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\McLaughlin_Final\Build\test_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\McLaughlin_Final\Build\test_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\McLaughlin_Final\Build\test_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\McLaughlin_Final\Build\test_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\McLaughlin_Final\Build\test_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+- Completed reload, in  0.037 seconds
+Platform assembly: C:\McLaughlin_Final\Build\test_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\McLaughlin_Final\Build\test_Data\Managed\System.dll (this message is harmless)
+Platform assembly: C:\McLaughlin_Final\Build\test_Data\Managed\Mono.Security.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 2.314212 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+3/15/2018 1:54:16 PM|Error|WebSocket.Send|A WebSocket connection isn't established.
+Setting up 4 worker threads for Enlighten.
+  Thread -> id: 52c0 -> priority: 1 
+  Thread -> id: 46d8 -> priority: 1 
+  Thread -> id: cc0 -> priority: 1 
+  Thread -> id: 4f28 -> priority: 1 
+UnloadTime: 0.538256 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 349.
+Total: 0.727521 ms (FindLiveObjects: 0.035373 ms CreateObjectMapping: 0.035373 ms MarkObjects: 0.644376 ms  DeleteObjects: 0.010940 ms)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 21.574759 ms
+
+Unloading 1 unused Assets to reduce memory usage. Loaded Objects now: 395.
+Total: 1.593619 ms (FindLiveObjects: 0.089344 ms CreateObjectMapping: 0.098826 ms MarkObjects: 1.376274 ms  DeleteObjects: 0.026256 ms)
+
